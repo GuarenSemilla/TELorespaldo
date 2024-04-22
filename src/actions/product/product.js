@@ -1,22 +1,40 @@
+// actions/productActions.js
 
-let products = [] //Sustituir [] por la carga del archivo ubicado en data/products.js (importar el archivo y asignar)
+const fs = require('fs');
+const path = require('path');
 
+// Obtener la ruta al archivo JSON 'products.json'
+const dataFilePath = path.join(__dirname, '../../data/', 'products.json');
 
-exports.getProducts = () => {
-    return products
-}
-
-exports.addProduct = (productData) => {
-  const product = {
-        id: 0,// asignar id de manera incremental e irrepetible
-        nombre: productData.nombre,
-        precio: productData.precio,
-        cantidad: productData.cantidad,
-        categorias: productData.categorias
-
+// Función para leer el archivo JSON y devolver los datos
+const readJsonFile = () => {
+    try {
+        if (fs.existsSync(dataFilePath)) {
+            const jsonData = fs.readFileSync(dataFilePath, 'utf-8');
+            return JSON.parse(jsonData);
+        } else {
+            console.error('El archivo JSON no existe en la ruta especificada:', dataFilePath);
+            return [];
+        }
+    } catch (error) {
+        console.error('Error al leer el archivo JSON:', error);
+        return [];
     }
-    products.push(product)
-    return product
-}
+};
 
+// Función para escribir datos en el archivo JSON
+const writeJsonFile = (data) => {
+    try {
+        const jsonData = JSON.stringify(data, null, 2);
+        fs.writeFileSync(dataFilePath, jsonData, 'utf-8');
+        console.log('Datos escritos correctamente en el archivo JSON:', dataFilePath);
+    } catch (error) {
+        console.error('Error al escribir en el archivo JSON:', error);
+    }
+};
 
+// Exportar las funciones de acciones
+module.exports = {
+    readJsonFile,
+    writeJsonFile,
+};
