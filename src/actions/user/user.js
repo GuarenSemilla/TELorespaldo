@@ -46,7 +46,7 @@ exports.addUser = (userData) => {
     const users = readJsonFile();
     const newuser = {
         name: userData.name,
-        rol: userData.rol
+        userid: userData.userid
     }
     try {
         users.push(newuser);
@@ -59,10 +59,18 @@ exports.addUser = (userData) => {
 }
 
 
-exports.removeUser = (userRol) => {
-    users = users.filter((user) => {  
-        return user.rol !== userRol
+exports.removeUser = (userid) => {
+    users = users.filter((user) => {
+        return user.userid !== userid
     })
+}
+
+
+exports.loginUsuario = (ctx) => {
+    console.log(ctx.body);
+    for (var i = 0; i < users.length; i++) {
+        console.log("chi", users[i].name, newuser)
+    }
 }
 
 

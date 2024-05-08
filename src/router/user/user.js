@@ -11,6 +11,12 @@ exports.createUser = (ctx) => {
     return ctx
 }
 
+exports.loginUser = (ctx) => {
+    userActions.loginUsuario(ctx.request.body)
+    ctx.body = { message: 'login exitoso' }
+    return ctx
+}
+
 exports.removeUser = (ctx) => {
     userActions.removeUser(ctx.params.rol)
     ctx.body = { message: 'User was removed' }
