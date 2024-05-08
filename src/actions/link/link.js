@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Obtener la ruta al archivo JSON 'products.json'
-const dataFilePath = path.join(__dirname, '../../data/', 'products.json');
+const dataFilePath = path.join(__dirname, '../../data/', 'link.json');
 
 // Función para leer el archivo JSON y devolver los datos
 const readJsonFile = () => {

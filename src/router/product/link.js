@@ -1,4 +1,4 @@
-import { readJsonFile, writeJsonFile }  from '../../actions/product/product'
+import { readJsonFile, writeJsonFile }  from '../../actions/product/link'
 
 // controllers/productController.js
 
@@ -9,14 +9,14 @@ exports.getAllProducts = async (ctx) => {
         const products = readJsonFile();
         ctx.body = products;
     } catch (error) {
-        console.error('Error al obtener los productos:', error);
+        console.error('Error al obtener los Repositorios:', error);
         ctx.status = 500;
-        ctx.body = { error: 'Error al obtener los productos' };
+        ctx.body = { error: 'Error al obtener los Repositorios' };
     }
 };
 
 // Función para agregar un nuevo producto
-exports.addNewItem = async (ctx) => {
+exports.addNewLink = async (ctx) => {
     try {
         const requestData = ctx.request.body;
         const products = readJsonFile();
@@ -30,10 +30,10 @@ exports.addNewItem = async (ctx) => {
         products.push(newProduct);
         writeJsonFile(products);
         ctx.status = 201;
-        ctx.body = { message: 'Producto agregado correctamente', product: newProduct };
+        ctx.body = { message: 'Repo agregado correctamente', product: newProduct };
     } catch (error) {
-        console.error('Error al agregar un nuevo producto:', error);
+        console.error('Error al agregar un nuevo Repo:', error);
         ctx.status = 500;
-        ctx.body = { error: 'Error al agregar un nuevo producto' };
+        ctx.body = { error: 'Error al agregar un nuevo Repo' };
     }
 };

@@ -1,8 +1,7 @@
 import Router from 'koa-router'
 import getHealth from './health/health'
 
-import {getAllProducts,addNewItem} from './product/product'
-
+import {getAllRepos,addNewLink} from './link/link'
 import users from './user/user'
 
 
@@ -11,8 +10,8 @@ const router = new Router()
 
 router.get('/health', getHealth)
 
-router.get('/products/inventario', getAllProducts)
-router.post('/products/agregar', addNewItem)
+router.get('/link/allrepos', getAllRepos)
+router.post('/link/agregar', addNewLink)
 
 router.get('/api/users', users.getAllUsers)
 router.put('/api/user', users.createUser)
