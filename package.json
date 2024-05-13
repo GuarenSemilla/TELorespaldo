@@ -1,7 +1,7 @@
 {
   "name": "rest_api_basic",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creado por Carlos Arredondo",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,5 +25,13 @@
     "koa": "^2.15.3",
     "nodemon": "^2.0.22",
     "rimraf": "^3.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuarenSemilla/TELorespaldo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuarenSemilla/TELorespaldo/issues"
+  },
+  "homepage": "https://github.com/GuarenSemilla/TELorespaldo#readme"
 }
