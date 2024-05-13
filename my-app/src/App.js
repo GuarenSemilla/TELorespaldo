@@ -1,9 +1,15 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';*/
+import Header from './component/headers';
+import FormComponent from './component/form';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Header course="Tel335" detail="Diseño e Implementación de App web y Mobiles"/>
+      <FormComponent />
+    </div>
+  /*  <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -18,7 +24,7 @@ function App() {
           Learn React
         </a>
       </header>
-    </div>
+    </div>*/
   );
 }
 
