@@ -1,6 +1,12 @@
+import { useState } from 'react' 
 import { Form, Row, Col, Button, Container } from 'react-bootstrap'
  
-function formComponent (){
+export default function FormComponent (){
+    const [email, setEmail] = useState('')
+    const [password, setPasword] = useState('')
+    const showMessage = () => {
+        alert(`El email ingresado es ${email} y su contraseña es ${password}`)
+    }
     return(
         <div style={{marginTop:150}}>
             <Form>
@@ -16,14 +22,14 @@ function formComponent (){
                                 <Form.Group>
                                     <label>E-MAIL:</label>
                                     <br />
-                                    <Form.Control id="email" type="email"/> 
+                                    <Form.Control id="email" type="email" onChange={(component) => setEmail(component.target.value)}/> 
                                 </Form.Group>
                             </Col>
                             <Col>
                                 <Form.Group>
                                     <label>PASSWORD:</label>
                                     <br/>
-                                    <Form.Control id="password" type="password" />
+                                    <Form.Control id="password" type="password" onChange={(component) => setPasword(component.target.value)} />
                                 </Form.Group>
                             </Col>
                         </Row>
@@ -32,10 +38,17 @@ function formComponent (){
                                 <Button className='home-title'
                                     type="button"
                                     size="lg"
+                                    onClick={showMessage}
                                     style={{backGroundColor:"red", borderColor:"black", textTransform:"uppercase"}}
                                 >
                                     <label>Ingresar</label>
                                 </Button>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <label>{email}</label>
+                                <label>{password}</label>
                             </Col>
                         </Row>
                     </Container>
@@ -45,4 +58,3 @@ function formComponent (){
         </div>
     )
 }
-export default formComponent
