@@ -25,6 +25,12 @@
   color: red;
 }
 
+.home-title{
+  color: blueviolet;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 .App-link {
   color: #fb61e6;
 }
