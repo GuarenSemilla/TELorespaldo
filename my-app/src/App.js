@@ -1,13 +1,14 @@
 /*import logo from './logo.svg';*/
 import Header from './component/headers';
-import FormComponent from './component/form';
+/*import FormComponent from './component/form';*/
 import './App.css';
+import Login from './component/login';
 
 function App() {
   return (
     <div className="app">
       <Header course="Tel335" detail="Diseño e Implementación de App web y Mobiles"/>
-      <FormComponent />
+      <Login />
     </div>
   /*  <div className="App">
       <header className="App-header">
