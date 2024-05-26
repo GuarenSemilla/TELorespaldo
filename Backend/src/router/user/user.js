@@ -1,4 +1,5 @@
 import userActions from '../../actions/user/user'
+import sandia from '../../actions/user/registrar'
 
 exports.getAllUsers = (ctx) => {
     ctx.body = userActions.getUsers()
@@ -20,5 +21,12 @@ exports.loginUser = (ctx) => {
 exports.removeUser = (ctx) => {
     userActions.removeUser(ctx.params.rol)
     ctx.body = { message: 'User was removed' }
+    return ctx
+}
+
+exports.registrarUser = (ctx) => {
+    console.log(ctx.request.body)
+    sandia.registrarUser(ctx.request.body)
+    console.log("hola pe")
     return ctx
 }
