@@ -62,5 +62,6 @@ const buscarDato = (dataFilePath,tipodato,dato) => {
 // Exportar las funciones de acciones
 module.exports = {
     readJsonFile,
-    writeJsonFile
+    writeJsonFile,
+    buscarDato
 };

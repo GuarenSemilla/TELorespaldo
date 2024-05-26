@@ -29,6 +29,7 @@ exports.removeUser = (userid) => {
         return user.userid !== userid
     })
 }
+
 exports.loginUsuario = (ctx) => {
     console.log(ctx.body);
     for (var i = 0; i < users.length; i++) {

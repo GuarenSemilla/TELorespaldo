@@ -1,56 +1,50 @@
 const path = require('path');
-import {buscarDato} from '../datos/datos'
+const { readJsonFile, writeJsonFile,buscarDato} = require('../datos/datos');
+
 const dataFilePath = path.join(__dirname, '../../data/', 'user.json');
 
-
 exports.registrarUser = (userData) => {
-    console.log(userData);
-    if
-    (
-    userData.name  == undefined ||
-    userData.correo  == undefined ||
-    userData.clave  == undefined 
-    ) 
-        {
-        userData.status=400
-        return{
-            "estado": "400",
-            "error": "Falta un dato"
-            }
-        }
-    console.log("sandia");
     try {
-      // Buscar al usuario proporcionado
-        const comprobador = buscarDato(dataFilePath,"correo",userData.correo)
-       // Comprobar si el usuario existe y la clave coincide
-        if(comprobador)
-        {
-        set.status=400
-        return{
-            "error":"Correo ya registrado"
-            }
+        console.log(userData);
+        if (!userData.name || !userData.correo || !userData.clave) {
+            return {
+                status: 400,
+                error: 'Falta un dato'
+            };
         }
-       const newuser = {
-        name: userData.name,
-        userid: userData.userid,
-        correo: userData.correo
+
+        // Buscar al usuario proporcionado
+        const comprobador = buscarDato(dataFilePath, "correo", userData.correo);
+
+        // Comprobar si el usuario existe y la clave coincide
+        if (comprobador) {
+            return {
+                status: 400,
+                error: 'Correo ya registrado'
+            };
         }
+
+        const newuser = {
+            name: userData.name,
+            correo: userData.correo,
+            clave: userData.clave
+            // No veo "userid" en los datos de usuario proporcionados, asegúrate de que esté en ctx.request.body
+        };
+
         const users = readJsonFile(dataFilePath);
         users.push(newuser);
-        writeJsonFile(users,dataFilePath);
-    } catch(error) {
-    userData.status = 500
-      return {
-        "estado": 500,
-        "Error": "error DB",
-         error: error.name,
-      }
-      
-  }
-  console.log("sandia");
-  userData.status = 200
-  return {
-      "estado": 200,
-      "mensaje": "Usuario registrado exitosamente"
-  };
+        writeJsonFile(users, dataFilePath);
+
+        return {
+            status: 200,
+            mensaje: 'Usuario registrado exitosamente'
+        };
+    } catch (error) {
+        console.error('Error al registrar usuario:', error);
+        return {
+            status: 500,
+            error: 'Error interno del servidor'
+        };
+    }
 };
+

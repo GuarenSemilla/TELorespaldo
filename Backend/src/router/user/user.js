@@ -25,8 +25,14 @@ exports.removeUser = (ctx) => {
 }
 
 exports.registrarUser = (ctx) => {
-    console.log(ctx.request.body)
-    sandia.registrarUser(ctx.request.body)
-    console.log("hola pe")
-    return ctx
-}
+    try {
+        console.log(ctx.request.body);
+        const result = sandia.registrarUser(ctx.request.body);
+        ctx.status = result.status || 200;
+        ctx.body = result;
+    } catch (error) {
+        console.error('Error al procesar la solicitud:', error);
+        ctx.status = 500;
+        ctx.body = { error: 'Error interno del servidor' };
+    }
+};
