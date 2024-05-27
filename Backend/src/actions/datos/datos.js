@@ -26,7 +26,7 @@ const writeJsonFile = (data,dataFilePath) => {
     }
 };
 
-const buscarDato = (dataFilePath,tipodato,dato) => {
+const verificarDato = (dataFilePath,tipodato,dato) => {
     const datos = readJsonFile(dataFilePath);
     switch(tipodato) {
         case 'name':
@@ -35,7 +35,7 @@ const buscarDato = (dataFilePath,tipodato,dato) => {
                     {
                     return true
                     }
-                console.log(dato,": ", datos[i].correo)
+                //console.log(dato,": ", datos[i].name)
             }
           break;
         case 'correo':
@@ -44,7 +44,7 @@ const buscarDato = (dataFilePath,tipodato,dato) => {
                     {
                     return true
                     }
-                console.log(dato,": ", datos[i].correo)
+               // console.log(dato,": ", datos[i].correo)
             }
           break;
         default:
@@ -58,10 +58,24 @@ const buscarDato = (dataFilePath,tipodato,dato) => {
       return false
 };
 
+const buscarUsuario = (correo,dataFilePath) => {
+    const datos = readJsonFile(dataFilePath);
+    for (let i = 0; i < datos.length; i++) {
+        if (datos[i].correo === correo) {
+            return {
+                "name":datos[i].name 
+            };
+        }
+    }
+    console.log("No existe el usuario");
+    return null; // Devolver null si no se encuentra el usuario
+};
+
 
 // Exportar las funciones de acciones
 module.exports = {
     readJsonFile,
     writeJsonFile,
-    buscarDato
+    buscarUsuario,
+    verificarDato
 };

@@ -6,6 +6,25 @@ exports.getAllUsers = (ctx) => {
     return ctx
 }
 
+exports.getOneUser = async (ctx) => {
+    const correo = ctx.params.correo; // Obtener el parámetro de la URL
+    console.log(`Correo: ${correo}`);
+    try {
+        const user = await userActions.getOneUser(correo);
+        if (user) {
+            ctx.status = 200;
+            ctx.body = user;
+        } else {
+            ctx.status = 404;
+            ctx.body = { error: 'Usuario no encontrado' };
+        }
+    } catch (error) {
+        console.error('Error al procesar la solicitud:', error);
+        ctx.status = 500;
+        ctx.body = { error: 'Error interno del servidor' };
+    }
+};
+
 exports.createUser = (ctx) => {
     userActions.addUser(ctx.request.body)
     ctx.body = { message: 'User was created' }
@@ -26,7 +45,6 @@ exports.removeUser = (ctx) => {
 
 exports.registrarUser = (ctx) => {
     try {
-        console.log(ctx.request.body);
         const result = sandia.registrarUser(ctx.request.body);
         ctx.status = result.status || 200;
         ctx.body = result;

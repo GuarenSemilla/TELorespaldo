@@ -1,10 +1,5 @@
 [
   {
-    "name": "pepino",
-    "correo": "123",
-    "clave": "123"
-  },
-  {
     "name": "tomate",
     "correo": "122223",
     "clave": "123ss"
@@ -23,5 +18,15 @@
     "name": "pepin2o",
     "correo": "1232",
     "clave": "123"
+  },
+  {
+    "name": "pepsin2o",
+    "correo": "1ss232",
+    "clave": "123"
+  },
+  {
+    "name": "MadreMiaRosaliaBajale",
+    "correo": "La rosalia",
+    "clave": "tomatePepino1"
   }
 ]

@@ -14,7 +14,8 @@ router.get('/health', getHealth)
 //router.post('/link/agregar', addNewLink)
 //Falta borrar Repositorios.
 
-router.get('/api/users', users.getAllUsers)
+router.get('/api/getAllUsers', users.getAllUsers)
+router.get('/api/getOneUser/:correo', users.getOneUser)
 router.put('/api/userRegistro', users.registrarUser)
 router.put('/api/user', users.createUser)
 router.put('/api/userlogin', users.loginUser)

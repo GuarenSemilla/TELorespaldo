@@ -1,5 +1,5 @@
 const path = require('path');
-const { readJsonFile, writeJsonFile,buscarDato} = require('../datos/datos');
+const { readJsonFile, writeJsonFile,verificarDato} = require('../datos/datos');
 
 const dataFilePath = path.join(__dirname, '../../data/', 'user.json');
 
@@ -14,7 +14,7 @@ exports.registrarUser = (userData) => {
         }
 
         // Buscar al usuario proporcionado
-        const comprobador = buscarDato(dataFilePath, "correo", userData.correo);
+        const comprobador = verificarDato(dataFilePath, "correo", userData.correo);
 
         // Comprobar si el usuario existe y la clave coincide
         if (comprobador) {
