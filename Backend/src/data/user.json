@@ -1,32 +1,26 @@
 [
   {
-    "name": "tomate",
-    "correo": "122223",
+    "id": 1,
+    "name": "sandia1",
+    "correo": "sandia1",
     "clave": "123ss"
   },
   {
-    "name": "carlitos",
-    "correo": "122223",
-    "clave": "123ddww"
+    "id": 2,
+    "name": "sandia2",
+    "correo": "sandia2",
+    "clave": "123ss"
   },
   {
-    "name": "sandia",
-    "correo": "123",
-    "clave": "12dd3"
+    "id": 3,
+    "name": "sandia3",
+    "correo": "sandia3",
+    "clave": "123ss"
   },
   {
-    "name": "pepin2o",
-    "correo": "1232",
-    "clave": "123"
-  },
-  {
-    "name": "pepsin2o",
-    "correo": "1ss232",
-    "clave": "123"
-  },
-  {
-    "name": "MadreMiaRosaliaBajale",
-    "correo": "La rosalia",
-    "clave": "tomatePepino1"
+    "id": 4,
+    "name": "semillita",
+    "correo": "semillin@gmail.com",
+    "clave": "123ss"
   }
 ]

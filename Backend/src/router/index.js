@@ -17,7 +17,6 @@ router.get('/health', getHealth)
 router.get('/api/getAllUsers', users.getAllUsers)
 router.get('/api/getOneUser/:correo', users.getOneUser)
 router.put('/api/userRegistro', users.registrarUser)
-router.put('/api/user', users.createUser)
 router.put('/api/userlogin', users.loginUser)
 router.delete('/api/user/:userid', users.removeUser)
 

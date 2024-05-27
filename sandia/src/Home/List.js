@@ -13,7 +13,7 @@ function List() {
 
     const listItems = users.map(user => (
         <li key={user.userid}>
-            Name: {user.name}, Email: ({user.correo})
+            ID: {user.id}, Name: {user.name}, Email: ({user.correo})
         </li>
     ));
 

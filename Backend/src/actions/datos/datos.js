@@ -70,6 +70,11 @@ const buscarUsuario = (correo,dataFilePath) => {
     console.log("No existe el usuario");
     return null; // Devolver null si no se encuentra el usuario
 };
+const obtenerID = (dataFilePath) => {
+    const datos = readJsonFile(dataFilePath);
+    let i = datos.length;
+    return i;
+};
 
 
 // Exportar las funciones de acciones
@@ -77,5 +82,6 @@ module.exports = {
     readJsonFile,
     writeJsonFile,
     buscarUsuario,
-    verificarDato
+    verificarDato,
+    obtenerID
 };

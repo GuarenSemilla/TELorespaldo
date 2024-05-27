@@ -25,12 +25,6 @@ exports.getOneUser = async (ctx) => {
     }
 };
 
-exports.createUser = (ctx) => {
-    userActions.addUser(ctx.request.body)
-    ctx.body = { message: 'User was created' }
-    return ctx
-}
-
 exports.loginUser = (ctx) => {
     userActions.loginUsuario(ctx.request.body)
     ctx.body = { message: 'login exitoso' }

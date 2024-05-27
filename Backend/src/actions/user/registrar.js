@@ -1,5 +1,5 @@
 const path = require('path');
-const { readJsonFile, writeJsonFile,verificarDato} = require('../datos/datos');
+const { readJsonFile, writeJsonFile,verificarDato,obtenerID} = require('../datos/datos');
 
 const dataFilePath = path.join(__dirname, '../../data/', 'user.json');
 
@@ -23,8 +23,9 @@ exports.registrarUser = (userData) => {
                 error: 'Correo ya registrado'
             };
         }
-
+        const id = obtenerID(dataFilePath);
         const newuser = {
+            id: id+1,
             name: userData.name,
             correo: userData.correo,
             clave: userData.clave
