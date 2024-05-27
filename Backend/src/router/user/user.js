@@ -1,6 +1,6 @@
 import userActions from '../../actions/user/user'
-import sandia from '../../actions/user/registrar'
-
+import userRegistro from '../../actions/user/registrar'
+import userLogin from '../../actions/user/login'
 exports.getAllUsers = (ctx) => {
     ctx.body = userActions.getAllUsers()
     return ctx
@@ -26,10 +26,16 @@ exports.getOneUser = async (ctx) => {
 };
 
 exports.loginUser = (ctx) => {
-    userActions.loginUsuario(ctx.request.body)
-    ctx.body = { message: 'login exitoso' }
-    return ctx
-}
+    try {
+        const result = userLogin.loginUser(ctx.request.body);
+        ctx.status = result.status || 200;
+        ctx.body = result;
+    } catch (error) {
+        console.error('Error al procesar la solicitud:', error);
+        ctx.status = 500;
+        ctx.body = { error: 'Error interno del servidor' };
+    }
+};
 
 exports.removeUser = (ctx) => {
     userActions.removeUser(ctx.params.rol)
@@ -39,7 +45,7 @@ exports.removeUser = (ctx) => {
 
 exports.registrarUser = (ctx) => {
     try {
-        const result = sandia.registrarUser(ctx.request.body);
+        const result = userRegistro.registrarUser(ctx.request.body);
         ctx.status = result.status || 200;
         ctx.body = result;
     } catch (error) {

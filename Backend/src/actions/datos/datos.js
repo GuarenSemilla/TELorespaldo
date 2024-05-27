@@ -58,7 +58,7 @@ const verificarDato = (dataFilePath,tipodato,dato) => {
       return false
 };
 
-const buscarUsuario = (correo,dataFilePath) => {
+const buscarUsuario = (dataFilePath,correo) => {
     const datos = readJsonFile(dataFilePath);
     for (let i = 0; i < datos.length; i++) {
         if (datos[i].correo === correo) {
@@ -76,12 +76,26 @@ const obtenerID = (dataFilePath) => {
     return i;
 };
 
-
+const comprobarClave = (dataFilePath,correo,clave) => {
+    const datos = readJsonFile(dataFilePath);
+    for (let i = 0; i < datos.length; i++) {
+        if (datos[i].correo === correo)
+            {
+            if(datos[i].clave===clave){
+                return true;
+            }
+            else return false;
+            }
+    }
+    console.log("No existe el usuario");
+    return null; // Devolver null si no se encuentra el usuario
+};
 // Exportar las funciones de acciones
 module.exports = {
     readJsonFile,
     writeJsonFile,
     buscarUsuario,
     verificarDato,
-    obtenerID
+    obtenerID,
+    comprobarClave
 };

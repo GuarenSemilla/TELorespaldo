@@ -5,7 +5,7 @@ function UserProfile() {
 
   useEffect(() => {
     // Realiza la petición al backend
-    fetch('http://localhost:3001/api/getOneUser/semillin@gmail.com')
+    fetch('http://localhost:3001/api/getOneUser/Maputurquezina@gmail.com')
       .then(response => response.json())
       .then(data => setMensaje(data.name))
       .catch(error => console.error('Error:', error));
@@ -17,7 +17,7 @@ function UserProfile() {
       };
     return (
       <>
-        <h1>{user.name}</h1>
+        <h2>{user.name}</h2>
         <img
           className="avatar"
           src={user.imageUrl}

@@ -17,7 +17,7 @@ router.get('/health', getHealth)
 router.get('/api/getAllUsers', users.getAllUsers)
 router.get('/api/getOneUser/:correo', users.getOneUser)
 router.put('/api/userRegistro', users.registrarUser)
-router.put('/api/userlogin', users.loginUser)
+router.post('/api/userlogin', users.loginUser)
 router.delete('/api/user/:userid', users.removeUser)
 
 export default router

@@ -9,7 +9,7 @@ exports.getAllUsers = () => {
     return users
 };
 exports.getOneUser = (correo) => {
-    return buscarUsuario(correo,dataFilePath);
+    return buscarUsuario(dataFilePath,correo);
 };
 
 exports.removeUser = (userid) => {
