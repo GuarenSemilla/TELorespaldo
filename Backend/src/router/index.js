@@ -1,7 +1,7 @@
 import Router from 'koa-router'
 import getHealth from './health/health'
 
-import {getAllRepos,addNewLink} from './link/link'
+import links from './link/link'
 import users from './user/user'
 
 
@@ -10,9 +10,10 @@ const router = new Router()
 
 router.get('/health', getHealth)
 
-//router.get('/link/allrepos', getAllRepos)
-//router.post('/link/agregar', addNewLink)
-//Falta borrar Repositorios.
+router.get('/api/getAllLinks', links.getAllLinks)
+router.get('/api/getOneLink/:ID', links.getOneLink)
+router.get('/api/getAllUserLinks/:correo', links.getAllUserLinks)
+router.put('/api/addNewLink', links.addNewLink)
 
 router.get('/api/getAllUsers', users.getAllUsers)
 router.get('/api/getOneUser/:correo', users.getOneUser)

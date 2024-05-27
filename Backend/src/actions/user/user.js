@@ -1,5 +1,7 @@
 const path = require('path');
-import {readJsonFile,writeJsonFile,buscarUsuario} from '../datos/datos'
+const { readJsonFile, writeJsonFile} = require('../datos/datos');
+const { verificarDato,obtenerID} = require('../datos/datosUser');
+
 const dataFilePath = path.join(__dirname, '../../data/', 'user.json');
 
 let users = []

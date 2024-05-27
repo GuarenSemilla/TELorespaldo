@@ -1,5 +1,6 @@
 const path = require('path');
-const { readJsonFile, writeJsonFile,verificarDato,obtenerID,comprobarClave} = require('../datos/datos');
+const { readJsonFile, writeJsonFile} = require('../datos/datos');
+const { verificarDato,getID} = require('../datos/datosUser');
 
 const dataFilePath = path.join(__dirname, '../../data/', 'user.json');
 
