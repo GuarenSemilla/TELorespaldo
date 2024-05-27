@@ -10,5 +10,23 @@
     "correo": "sandia1",
     "tag": "fisica",
     "link": "juegos.com"
+  },
+  {
+    "id": 3,
+    "correo": "sandia2",
+    "tag": "fisica",
+    "link": "juegos1.com"
+  },
+  {
+    "id": 4,
+    "correo": "sandia2",
+    "tag": "mate",
+    "link": "juegos2.com"
+  },
+  {
+    "id": 5,
+    "correo": "sandia2",
+    "tag": "quimica",
+    "link": "juegos3.com"
   }
 ]

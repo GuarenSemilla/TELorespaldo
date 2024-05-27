@@ -7,10 +7,10 @@ exports.getAllLinks = (ctx) => {
 }
 
 exports.getOneLink = async (ctx) => {
-    const correo = ctx.params.correo; // Obtener el parámetro de la URL
-    console.log(`Correo: ${correo}`);
+    const id = ctx.params.ID; // Obtener el parámetro de la URL
+    console.log(ctx.params.ID);
     try {
-        const user = await linkActions.getOneLink(correo);
+        const user = await linkActions.getOneLink(id);
         if (user) {
             ctx.status = 200;
             ctx.body = user;
