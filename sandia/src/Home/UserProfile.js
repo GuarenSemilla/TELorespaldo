@@ -13,7 +13,7 @@ function UserProfile() {
     const user = {
         name: mensaje,
         imageUrl: 'https://c.tenor.com/r0R0N3dI3kIAAAAd/tenor.gif',
-        imageSize: 500,
+        imageSize: 200,
       };
     return (
       <>

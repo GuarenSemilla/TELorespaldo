@@ -4,6 +4,7 @@ import Home from './Home/Home';
 import About from './Home/About';
 import Contact from './Home/Contact';
 import UserProfile from './Home/UserProfile';
+import List from './Home/List';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
             <li>
               <Link to="/profile">UserProfile</Link>
             </li>
+            <li>
+            <Link to="/list">List</Link>
+            </li>
           </ul>
         </nav>
         <Routes>
@@ -30,6 +34,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/list" element={<List />} />
         </Routes>
       </div>
     </Router>

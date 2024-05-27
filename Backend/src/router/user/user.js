@@ -2,7 +2,7 @@ import userActions from '../../actions/user/user'
 import sandia from '../../actions/user/registrar'
 
 exports.getAllUsers = (ctx) => {
-    ctx.body = userActions.getUsers()
+    ctx.body = userActions.getAllUsers()
     return ctx
 }
 
