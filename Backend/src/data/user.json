@@ -22,5 +22,11 @@
     "name": "semillita",
     "correo": "semillin@gmail.com",
     "clave": "123ss"
+  },
+  {
+    "id": 5,
+    "name": "Mapu",
+    "correo": "Maputurquezina@gmail.com",
+    "clave": "pan"
   }
 ]
