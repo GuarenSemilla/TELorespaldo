@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home/Home';
 import About from './Home/About';
 import Contact from './Home/Contact';
-import UserProfile from './Home/UserProfile';
+import EventLogin from './Login/EventLogin';
+import UserProfile from './Login/UserProfile';
 import List from './Home/List';
 
 function App() {
@@ -22,10 +23,13 @@ function App() {
               <Link to="/contact">Contact</Link>
             </li>
             <li>
-              <Link to="/profile">UserProfile</Link>
+              <Link to="/login">Login</Link>
             </li>
             <li>
-            <Link to="/list">List</Link>
+              <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/list">List</Link>
             </li>
           </ul>
         </nav>
@@ -33,6 +37,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/login" element={<EventLogin />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="/list" element={<List />} />
         </Routes>
@@ -42,4 +47,3 @@ function App() {
 }
 
 export default App;
-

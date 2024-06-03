@@ -37,6 +37,9 @@ const buscarUsuario = (dataFilePath,correo) => {
     for (let i = 0; i < datos.length; i++) {
         if (datos[i].correo === correo) {
             return {
+                //"name":datos[i].name 
+                "id":datos[i].id ,
+                "correo":datos[i].correo,
                 "name":datos[i].name 
             };
         }
