@@ -44,7 +44,7 @@ const buscarUsuario = (dataFilePath,correo) => {
             };
         }
     }
-    console.log("No existe el usuario");
+    console.log("No existe el usuario: ",correo);
     return null; // Devolver null si no se encuentra el usuario
 };
 

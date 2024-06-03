@@ -9,6 +9,7 @@ function EventLogin() {
   const navigate = useNavigate();
 
   const handleLoginSuccess = (data) => {
+    console.log("Login successful with data:", data); // Debugging log
     setIsLoggedIn(true);
     setUserData(data);
     navigate('/profile'); // Redirige a UserProfile

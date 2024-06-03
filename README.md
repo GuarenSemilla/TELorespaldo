@@ -42,6 +42,7 @@ Dentro contiene 3 carpetas y un archivo:
 
 Instalacion de dependencia del package.json (Recordar siempre hacer este comando al bajar un proyecto en node)
 ~~~
+npm install -g nodemon
 npm install
 ~~~
 

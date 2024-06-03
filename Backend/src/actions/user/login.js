@@ -31,6 +31,7 @@ exports.loginUser = (userData) => {
                     }
                 }
             }
+        console.error('exito pe');
         return {
             status: 200,
             mensaje: 'Usuario logeado exitosamente'

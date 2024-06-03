@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import UserProfile from './UserProfile';
 
-function Login(onLoginSuccess ) {
+function Login({ onLoginSuccess }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
-    
     e.preventDefault();
     try {
       const response = await fetch('http://localhost:3001/api/userlogin', {
@@ -16,15 +13,18 @@ function Login(onLoginSuccess ) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ "correo": email, "clave":password }),
+        body: JSON.stringify({ "correo": email, "clave": password }),
       });
 
       if (!response.ok) {
         const text = await response.text();
         throw new Error(`Error ${response.status}: ${text}`);
       }
-      const userData = { email };//Se asume que el backend devuelve los datos del usuario en 'data.user'
-      //onLoginSuccess(userData);
+      const result = await response.json();
+      console.log("Response from server:", result); // Debugging log
+      console.log("Correo electrónico:", email); // Verificar el valor del correo electrónico
+      // Llama a la función de éxito del login con el correo correcto
+      onLoginSuccess({ email });
     } catch (error) {
       setError('Error de red: ' + error.message);
     }
