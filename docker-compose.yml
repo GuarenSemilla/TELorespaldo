@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  front:
+    container_name: Frontend
+    build:
+      context: ./Frontend  # Asumiendo que el Dockerfile del frontend está en el directorio 
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - telorespaldoapp
+    volumes:
+      - ./Frontend:/usr/src/app  # Asegúrate de que el código del frontend 
+  
+  back:
+    container_name: Backend
+    build:
+      context: ./Backend  # Asumiendo que el Dockerfile del backend está en el directorio ./backend
+    restart: always
+    ports:
+      - "3001:3001"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+      - front
+    networks:
+      - telorespaldoapp
+    volumes:
+      - ./Backend:/usr/src/app  # Asegúrate de que el código del backend está en ./backend
+
+  mongo:
+    container_name: MongoDatabase
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    depends_on:
+      - front
+    networks:
+      - telorespaldoapp
+    volumes:
+      - mongo-data:/data/db
+
+networks:
+  telorespaldoapp:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local

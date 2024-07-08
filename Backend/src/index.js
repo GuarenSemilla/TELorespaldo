@@ -3,6 +3,8 @@ import Koa from 'koa'
 import bodyParser from 'koa-body'
 import router from './router/index'
 require('@babel/register');
+require("./database")
+
 const cors = require('@koa/cors');
 const app = new Koa();
 

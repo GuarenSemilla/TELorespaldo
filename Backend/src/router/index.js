@@ -4,8 +4,6 @@ import getHealth from './health/health'
 import links from './link/link'
 import users from './user/user'
 
-
-
 const router = new Router()
 
 router.get('/health', getHealth)

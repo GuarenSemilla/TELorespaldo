@@ -1,18 +1,6 @@
 Requisitos: 
 tener instalado docker
-python
-python-dotenv==1.0.1
 
 Proyecto:
-Clonar el repositorio
-una vez dentro del proyecto ir a la carpeta:
-cd .\BackendDocker\
-activar el entorno virtual:
-source venv/bin/activate
-Con el entorno virtual activado podemos levantar 
-nuestro docker con los siguientes comandos:
-docker-compose build
-docker-compose up
-con el servicio levantado podemos probarlo en:
-localhost:8000
+ejecutar "docker-compose up" para que corra todo
 
