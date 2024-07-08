@@ -40,7 +40,9 @@ services:
     networks:
       - telorespaldoapp
     volumes:
-      - mongo-data:/data/db
+      - ./MongoDB:/data
+      - ./MongoDB/configdb:/data/configdb
+      - ./MongoDB/db:/data/db
 
 networks:
   telorespaldoapp:
