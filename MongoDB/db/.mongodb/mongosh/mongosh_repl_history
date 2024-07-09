@@ -1,0 +1,16 @@
+db.directorios.find().pretty()
+db.asignaturas.find().pretty()
+show collections
+use mydatabase
+db.asignaturas.find().pretty()
+show collections
+use mydatabase
+show dbs
+cd ..
+db.asignaturas.find().pretty()
+show collections
+use asisgnaturas
+show collections
+use mydatabase
+show mydatabase
+show dbs
