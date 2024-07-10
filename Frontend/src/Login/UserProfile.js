@@ -7,7 +7,7 @@ function UserProfile({ email, onLogout }) {
     const fetchUserProfile = async () => {
       try {
         console.log("Fetching user profile for email:", email);
-        const response = await fetch(`http://localhost:3001/api/getUser/${email}`);
+        const response = await fetch(`/api/userDB/${email}`);
         if (!response.ok) {
           const text = await response.text();
           throw new Error(`Error ${response.status}: ${text}`);
@@ -23,14 +23,14 @@ function UserProfile({ email, onLogout }) {
     if (email) {
       fetchUserProfile();
     }
-  }, [email]);
+  }, [email]); // Se debe ejecutar useEffect cuando el email cambie
 
   return (
     <div>
       {userProfile ? (
         <div>
-          <h1>Welcome, {userProfile.name}</h1>
-          <p>Email: {userProfile.email}</p>
+          <h1>Bienvenido, {userProfile.nombre}</h1> {/* Corregido: userProfile.nombre en lugar de userProfile.name */}
+          <p>Email: {userProfile.correo}</p> {/* Corregido: userProfile.correo en lugar de userProfile.email */}
           <button onClick={onLogout}>Logout</button>
         </div>
       ) : (

@@ -43,8 +43,6 @@ exports.registrarUser = async (ctx) => {
     return;
   }
 
-
-
   // Crear un nuevo usuario
   const nuevoUsuario = new Usuario({
     nombre,

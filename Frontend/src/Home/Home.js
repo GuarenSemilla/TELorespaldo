@@ -17,9 +17,7 @@ function Home() {
     }, []);
   return (
     <div className="home">
-      <h1>{mensaje}</h1>
-      <p>Bienvenido a la página principal.</p>
-      <MyButton />
+      <h2>Bienvenido a TELorespaldo</h2>
     </div>
   );
 }

@@ -20,7 +20,7 @@ const directorioSchema = new Schema({
   ruta_del_archivo: { type: String, required: true },
   sigla: { type: String, required: true, ref: 'Asignatura' },
   tipo_de_documento: { type: String, required: true },
-  autor: { type: String, required: true, ref: 'Usuario' }
+  correo: { type: String, required: true, ref: 'Usuario' }
 });
 
 const Directorio = mongoose.model('Directorio', directorioSchema);

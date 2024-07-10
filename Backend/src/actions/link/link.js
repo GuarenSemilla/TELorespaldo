@@ -1,6 +1,7 @@
 const path = require('path');
 import {readJsonFile,writeJsonFile} from '../datos/datos'
 import{getLinkByID,getAllUserLinks}from '../datos/datosLink'
+
 const dataFilePath = path.join(__dirname, '../../data/', 'links.json');
 
 const { Asignatura, Directorio } = require('../../database.js');
@@ -40,11 +41,4 @@ exports.getAllRamos = async () => {
 
 
   
-exports.getOneLink = (linkID) => {
-    return getLinkByID(dataFilePath,linkID);
-};
-
-exports.getAllUserLinks = (correo) => {
-    return getAllUserLinks(dataFilePath,correo);
-};
 

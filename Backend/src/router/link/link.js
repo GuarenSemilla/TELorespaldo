@@ -1,7 +1,4 @@
 import linkActions from '../../actions/link/link'
-import addLink from '../../actions/link/addLink'
-
-
 
 exports.getAllLinks = async (ctx) => {
     ctx.body = await linkActions.getAllLinks()
@@ -52,33 +49,4 @@ exports.getOneLink = async (ctx) => {
     }
 };
 
-exports.getAllUserLinks = async (ctx) => {
-    const correo = ctx.params.correo; // Obtener el parámetro de la URL
-    console.log(`Correo: ${correo}`);
-    try {
-        const link = await linkActions.getAllUserLinks(correo);
-        if (link) { 
-            ctx.status = 200;
-            ctx.body = link;
-        } else {
-            ctx.status = 404;
-            ctx.body = { error: 'Usuario no encontrado' };
-        }
-    } catch (error) {
-        console.error('Error al procesar la solicitud:', error);
-        ctx.status = 500;
-        ctx.body = { error: 'Error interno del servidor' };
-    }
-};
 
-exports.addNewLink = (ctx) => {
-    try {
-        const result = addLink.addNewLink(ctx.request.body);
-        ctx.status = result.status || 200;
-        ctx.body = result;
-    } catch (error) {
-        console.error('Error al procesar la solicitud:', error);
-        ctx.status = 500;
-        ctx.body = { error: 'Error interno del servidor' };
-    }
-};
