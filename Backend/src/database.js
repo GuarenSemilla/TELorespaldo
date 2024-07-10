@@ -34,7 +34,7 @@ nuevaAsignatura.save().then(() => console.log('Asignatura creada'));
 
 // Crear un nuevo directorio de archivo
 const nuevoDirectorio = new Directorio({
-  ruta_del_archivo: '/documentos/matematicas/basicas/apuntes.pdf',
+  ruta_del_archivo: './data/TEL335/Control1.pdf,
   sigla: 'TEL335',
   tipo_de_documento: 'Pauta Certamen'
 });
