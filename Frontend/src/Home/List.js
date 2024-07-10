@@ -5,7 +5,7 @@ function List() {
 
     useEffect(() => {
         // Realiza la petición al backend
-        fetch('http://localhost:3001/api/getAllUsers')
+        fetch('/api/usersBD')
             .then(response => response.json())
             .then(data => setUsers(data))
             .catch(error => console.error('Error:', error));

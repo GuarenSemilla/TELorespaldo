@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Row, Col, FloatingLabel, Form, Button, Alert } from 'react-bootstrap';
 
-function Login() {
+function UserRegistro() {
+  const [nombre, setNombre] = useState("");
   const [correo, setCorreo] = useState("");
   const [clave, setClave] = useState("");
   const [error, setError] = useState("");
@@ -9,7 +10,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if ((correo==="")||(clave==="")) {
+    if ((nombre === "")||(correo==="")||(clave==="")) {
       setError('Todos los campos son obligatorios');
       setSuccess(false);
       return;
@@ -17,11 +18,11 @@ function Login() {
 
     try {
       const response = await fetch('/api/userDB', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({"correo": correo, "clave": clave}),
+        body: JSON.stringify({ "nombre": nombre, "correo": correo, "clave": clave}),
       });
 
       if (!response.ok) {
@@ -50,7 +51,7 @@ function Login() {
     <form onSubmit={handleSubmit}>
       {success && (
         <Alert variant="success">
-          <Alert.Heading>¡Usuario logeado exitosamente!</Alert.Heading>
+          <Alert.Heading>¡Usuario registrado exitosamente!</Alert.Heading>
         </Alert>
       )}
       {error && (
@@ -59,6 +60,16 @@ function Login() {
         </Alert>
       )}
       <Row className="g-2">
+        <Col md>
+          <FloatingLabel controlId="floatingInputGrid" label="Nombre de usuario">
+            <Form.Control
+              type="text"
+              placeholder="Nombre de usuario"
+              value={nombre}
+              onChange={(e) => setNombre(e.target.value)}
+            />
+          </FloatingLabel>
+        </Col>
         <Col md>
           <FloatingLabel controlId="floatingInputGrid" label="Correo">
             <Form.Control
@@ -80,9 +91,9 @@ function Login() {
           </FloatingLabel>
         </Col>
       </Row>
-      <Button type="submit" disabled={correo === ''||clave=== "" }>Enviar</Button>
+      <Button type="submit" disabled={nombre === '' }>Enviar</Button>
     </form>
   );
 }
 
-export default Login;
+export default UserRegistro;

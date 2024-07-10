@@ -1,8 +1,10 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-mongoose.connect("mongodb://mongo/mydatabase").then(db => console.log("DB bkn esta conectada: ", db.connection.host)).catch(err => console.error(err))
-
+// Conectar a la base de datos
+mongoose.connect("mongodb://mongo/mydatabase")
+  .then(db => console.log("DB bkn esta conectada: ", db.connection.host))
+  .catch(err => console.error(err));
 
 // Esquema de Asignaturas
 const asignaturaSchema = new Schema({
@@ -17,15 +19,30 @@ const Asignatura = mongoose.model('Asignatura', asignaturaSchema);
 const directorioSchema = new Schema({
   ruta_del_archivo: { type: String, required: true },
   sigla: { type: String, required: true, ref: 'Asignatura' },
-  tipo_de_documento: { type: String, required: true }
+  tipo_de_documento: { type: String, required: true },
+  autor: { type: String, required: true, ref: 'Usuario' }
 });
 
 const Directorio = mongoose.model('Directorio', directorioSchema);
+
+// Esquema de Usuarios
+const usuarioSchema = new Schema({
+  nombre: { type: String, required: true },
+  correo: { type: String, required: true, unique: true },
+  clave: { type: String, required: true }
+});
+
+const Usuario = mongoose.model('Usuario', usuarioSchema);
+
+
+
+
 
 
 module.exports = {
   Asignatura,
   Directorio,
+  Usuario,
 };
 
 

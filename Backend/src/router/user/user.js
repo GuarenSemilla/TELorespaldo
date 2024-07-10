@@ -1,6 +1,8 @@
 import userActions from '../../actions/user/user'
-import userRegistro from '../../actions/user/registrar'
 import userLogin from '../../actions/user/login'
+import userDB from '../../actions/user/userDB'
+
+
 exports.getAllUsers = (ctx) => {
     ctx.body = userActions.getAllUsers()
     return ctx
@@ -43,14 +45,11 @@ exports.removeUser = (ctx) => {
     return ctx
 }
 
-exports.registrarUser = (ctx) => {
-    try {
-        const result = userRegistro.registrarUser(ctx.request.body);
-        ctx.status = result.status || 200;
-        ctx.body = result;
-    } catch (error) {
-        console.error('Error al procesar la solicitud:', error);
-        ctx.status = 500;
-        ctx.body = { error: 'Error interno del servidor' };
-    }
-};
+
+exports.registrarUser = async (ctx) => {
+    console.log("Hola 1")
+    ctx.body = await userDB.registrarUser(ctx)
+    console.log("final",ctx.body)
+    return ctx
+}
+
