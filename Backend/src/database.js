@@ -32,18 +32,19 @@ module.exports = {
 /*
 // Crear una nueva asignatura
 const nuevaAsignatura = new Asignatura({
-  sigla: 'TEL335',
-  nombre: 'DISEÑO DE APLICACIONES WEB Y MÓVILES',
-  departamento: 'Electronica'
+  sigla: 'INF236',
+  nombre: 'ANALISIS Y DISEÑO DE SOFTWARE',
+  departamento: 'Informatica'
 });
 
 nuevaAsignatura.save().then(() => console.log('Asignatura creada'));
 
+
 // Crear un nuevo directorio de archivo
 const nuevoDirectorio = new Directorio({
-  ruta_del_archivo: './data/TEL335/Control1.pdf',
-  sigla: 'TEL335',
-  tipo_de_documento: 'Pauta Certamen'
+  ruta_del_archivo: './data/TEL222/Example_code.pdf',
+  sigla: 'INF236',
+  tipo_de_documento: 'Ejercicio'
 });
 
 nuevoDirectorio.save().then(() => console.log('Directorio creado'));

@@ -19,13 +19,21 @@ exports.getAllLinks = async () => {
 exports.getAllRamos = async () => {
     try {
       const asignatura = await Asignatura.find();
-      console.log("Ayuda")
       return asignatura;
     } catch (error) {
       throw new Error('Error al obtener los directorios');
     }
   };
   
+  exports.getDataBySigla = async (sigla) => {
+    try {
+      const directorios = await Directorio.find({ sigla: sigla });
+      return directorios;
+    } catch (error) {
+      console.error('Error al obtener las asignaturas por sigla:', error);
+      throw new Error('Error al obtener las asignaturas por sigla');
+    }
+  };
 
 exports.getOneLink = (linkID) => {
     return getLinkByID(dataFilePath,linkID);

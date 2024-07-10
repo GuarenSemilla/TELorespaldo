@@ -17,7 +17,6 @@ services:
     container_name: Backend
     build:
       context: ./Backend  # Asumiendo que el Dockerfile del backend está en el directorio ./backend
-    restart: always
     ports:
       - "3001:3001"
     links:

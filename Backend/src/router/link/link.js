@@ -13,6 +13,26 @@ exports.getAllRamos = async (ctx) => {
     return ctx
 }
 
+exports.getDataBySigla = async (ctx) => {
+    const sigla = ctx.params.sigla; // Obtener el parámetro de la URL
+    console.log(ctx.params.sigla);
+    try {
+        const body = await linkActions.getDataBySigla(sigla)
+        if (body) {
+            ctx.status = 200;
+            ctx.body = body;
+        } else {
+            ctx.status = 404;
+            ctx.body = { error: 'Sigla no encontrada' };
+        }
+    }catch (error) {
+            console.error('Error al procesar la solicitud:', error);
+            ctx.status = 500;
+            ctx.body = { error: 'Error interno del servidor' };
+        }  
+    return ctx
+};
+
 exports.getOneLink = async (ctx) => {
     const id = ctx.params.ID; // Obtener el parámetro de la URL
     console.log(ctx.params.ID);
@@ -37,7 +57,7 @@ exports.getAllUserLinks = async (ctx) => {
     console.log(`Correo: ${correo}`);
     try {
         const link = await linkActions.getAllUserLinks(correo);
-        if (link) {
+        if (link) { 
             ctx.status = 200;
             ctx.body = link;
         } else {

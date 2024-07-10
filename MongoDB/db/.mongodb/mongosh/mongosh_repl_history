@@ -1,3 +1,23 @@
+db.directorios.find({sigla: 'TEL222'}).pretty()
+db.directorios.find({sigla: TEL222}).pretty()
+db.directorios.find().pretty()
+db.directorio.find().pretty()
+db.asignaturas.find().pretty()
+use mydatabase
+exit
+show collections
+use admin
+show dbs
+cd..
+cd ..
+db.system.sessions.find().pretty()
+show collections
+use config
+show dbs
+db.startup_log.find().pretty()
+show collections
+use local
+show dbs
 db.directorios.find().pretty()
 show collections
 use mydatabase
