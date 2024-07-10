@@ -1,8 +1,15 @@
 import linkActions from '../../actions/link/link'
 import addLink from '../../actions/link/addLink'
 
-exports.getAllLinks = (ctx) => {
-    ctx.body = linkActions.getAllLinks()
+
+
+exports.getAllLinks = async (ctx) => {
+    ctx.body = await linkActions.getAllLinks()
+    return ctx
+}
+
+exports.getAllRamos = async (ctx) => {
+    ctx.body = await linkActions.getAllRamos()
     return ctx
 }
 

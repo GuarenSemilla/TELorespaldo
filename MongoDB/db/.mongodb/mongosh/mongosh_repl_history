@@ -1,4 +1,8 @@
 db.directorios.find().pretty()
+show collections
+use mydatabase
+show dss
+db.directorios.find().pretty()
 db.asignaturas.find().pretty()
 show collections
 use mydatabase

@@ -22,6 +22,13 @@ const directorioSchema = new Schema({
 
 const Directorio = mongoose.model('Directorio', directorioSchema);
 
+
+module.exports = {
+  Asignatura,
+  Directorio,
+};
+
+
 /*
 // Crear una nueva asignatura
 const nuevaAsignatura = new Asignatura({
@@ -34,7 +41,7 @@ nuevaAsignatura.save().then(() => console.log('Asignatura creada'));
 
 // Crear un nuevo directorio de archivo
 const nuevoDirectorio = new Directorio({
-  ruta_del_archivo: './data/TEL335/Control1.pdf,
+  ruta_del_archivo: './data/TEL335/Control1.pdf',
   sigla: 'TEL335',
   tipo_de_documento: 'Pauta Certamen'
 });

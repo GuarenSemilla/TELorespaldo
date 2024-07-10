@@ -29,6 +29,7 @@ services:
       - telorespaldoapp
     volumes:
       - ./Backend:/usr/src/app  # Asegúrate de que el código del backend está en ./backend
+    command: npm run start:dev
 
   mongo:
     container_name: MongoDatabase

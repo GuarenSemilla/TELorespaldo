@@ -8,6 +8,7 @@ const router = new Router()
 
 router.get('/health', getHealth)
 
+router.get('/api/getAllRamos', links.getAllRamos) 
 router.get('/api/getAllLinks', links.getAllLinks)
 router.get('/api/getOneLink/:ID', links.getOneLink)
 router.get('/api/getAllUserLinks/:correo', links.getAllUserLinks)
